@@ -7,29 +7,42 @@
 
 import SwiftUI
 
+import Alamofire
+import SwiftyJSON
 struct ContentView: View {
    
     
     @ObservedObject var vm = ViewModel()
     
     var body: some View {
-           ZStack {
-                Color("Fondo")
-                  .ignoresSafeArea()
-            
-            VStack {
+       
+        ZStack{
+            Color(.green)
+               .ignoresSafeArea()
+            VStack{
                 
-               
-                Text(vm.pcr)
-                    .multilineTextAlignment(.center)
+                Text("Positivos")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                    .background(Color.gray.opacity(0.2))
+             
+                    
+                Text(vm.positivos)
+                    .font(.title)
+                    .padding(1)
+                Text(vm.incidencia)
+                    .padding(1)
+                Button("Cargar datos") {
+                    vm.mostrarDatos()
+                }
+                
+                
             }
-            
-            
-}
+        }
     }
 }
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+        struct ContentView_Previews: PreviewProvider {
+            static var previews: some View {
+                ContentView()
+            }
+        }

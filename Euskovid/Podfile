@@ -6,7 +6,7 @@ target 'Euskovid' do
   use_frameworks!
 
   # Pods for euskovid
-
+ 
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.2'
   
