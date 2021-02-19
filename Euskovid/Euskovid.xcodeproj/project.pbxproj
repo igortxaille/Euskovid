@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		663B817F1B73FE2B5F933F51 /* Pods_Euskovid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ED9E5A95026214351F49E9 /* Pods_Euskovid.framework */; };
-		78286CCC25DAF718000681B5 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78286CCB25DAF718000681B5 /* SwiftUIView.swift */; };
+		78286CCC25DAF718000681B5 /* Positivos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78286CCB25DAF718000681B5 /* Positivos.swift */; };
 		78299E8625CD59210053CE73 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78299E8525CD59210053CE73 /* ViewModel.swift */; };
 		78F3592F25CD571A00E5F48C /* EuskovidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3592E25CD571A00E5F48C /* EuskovidApp.swift */; };
 		78F3593125CD571A00E5F48C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3593025CD571A00E5F48C /* ContentView.swift */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		1DB34EB8184A2CD77C2C78DD /* Pods-Euskovid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euskovid.debug.xcconfig"; path = "Target Support Files/Pods-Euskovid/Pods-Euskovid.debug.xcconfig"; sourceTree = "<group>"; };
 		271F996E15E5287F254813CD /* Pods-Euskovid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Euskovid.release.xcconfig"; path = "Target Support Files/Pods-Euskovid/Pods-Euskovid.release.xcconfig"; sourceTree = "<group>"; };
-		78286CCB25DAF718000681B5 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		78286CCB25DAF718000681B5 /* Positivos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Positivos.swift; sourceTree = "<group>"; };
 		78299E8525CD59210053CE73 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		78F3592B25CD571A00E5F48C /* Euskovid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Euskovid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F3592E25CD571A00E5F48C /* EuskovidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuskovidApp.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 				78F3593225CD571B00E5F48C /* Assets.xcassets */,
 				78F3593725CD571B00E5F48C /* Info.plist */,
 				78F3593425CD571B00E5F48C /* Preview Content */,
-				78286CCB25DAF718000681B5 /* SwiftUIView.swift */,
+				78286CCB25DAF718000681B5 /* Positivos.swift */,
 			);
 			path = Euskovid;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 			files = (
 				78F3593125CD571A00E5F48C /* ContentView.swift in Sources */,
 				78299E8625CD59210053CE73 /* ViewModel.swift in Sources */,
-				78286CCC25DAF718000681B5 /* SwiftUIView.swift in Sources */,
+				78286CCC25DAF718000681B5 /* Positivos.swift in Sources */,
 				78F3592F25CD571A00E5F48C /* EuskovidApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

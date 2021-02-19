@@ -11,35 +11,94 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-enum Dia: String, CaseIterable, Identifiable {
-    case hoy
-    case ayer
-    
 
-    var id: String { self.rawValue }
-}
 
 class ViewModel: ObservableObject {
-    
-    @Published var positivos = "15"
+    @Published var date = "0"
+   
     @Published var incidencia = "15"
+    @Published var positivos = "15"
+    @Published var fecha = "1"
     
     
-    func mostrarDatos(){
-        let url = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-pcr.json"
+    func cargarDatos(){
+        let pcr = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-pcr.json"
+        let municipios = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-bymunicipality.json"
+        let edad = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-pcr-positives.json"
+        let situacion = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-epidemic-status.json"
         
-    AF.request(url, method: .get).validate().responseJSON { response in
+        
+        
+        
+        
+    AF.request(pcr, method: .get).validate().responseJSON { response in
         switch response.result {
         case .success(let value):
             let json = JSON(value)
+
+            let ultimo = json["byDate"].array!.last
             
-            self.positivos = json["positiveCounts"][0].stringValue
-            self.incidencia = json["aggregatedIncidences"][0].stringValue
+            self.positivos = ultimo!["positiveCount"].stringValue
+                
+            self.incidencia = ultimo!["aggregatedIncidence"].stringValue
+            self.fecha = ultimo!["date"].stringValue
             
+
         case .failure(let error):
             print(error)
         }
     }
+        AF.request(municipios, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+
+                let ultimo = json["byDate"].array!.last
+                
+                self.positivos = ultimo!["positiveCount"].stringValue
+                    
+                self.incidencia = ultimo!["aggregatedIncidence"].stringValue
+                self.fecha = ultimo!["date"].stringValue
+                
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+        AF.request(edad, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+
+                let ultimo = json["byDate"].array!.last
+                
+                self.positivos = ultimo!["positiveCount"].stringValue
+                    
+                self.incidencia = ultimo!["aggregatedIncidence"].stringValue
+                self.fecha = ultimo!["date"].stringValue
+                
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+        AF.request(situacion, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+
+                let ultimo = json["byDate"].array!.last
+                
+                self.positivos = ultimo!["positiveCount"].stringValue
+                    
+                self.incidencia = ultimo!["aggregatedIncidence"].stringValue
+                self.fecha = ultimo!["date"].stringValue
+                
+
+            case .failure(let error):
+                print(error)
+            }
+        }
     
     }
 }
