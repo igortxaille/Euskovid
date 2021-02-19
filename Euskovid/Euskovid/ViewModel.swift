@@ -33,8 +33,8 @@ class ViewModel: ObservableObject {
         case .success(let value):
             let json = JSON(value)
             
-            self.positivos = json["byDate"][0]["positiveCount"].stringValue
-            self.incidencia = json["byDate"][0]["aggregatedIncidence"].stringValue
+            self.positivos = json["positiveCounts"][0].stringValue
+            self.incidencia = json["aggregatedIncidences"][0].stringValue
             
         case .failure(let error):
             print(error)

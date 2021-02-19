@@ -17,8 +17,9 @@ struct ContentView: View {
     var body: some View {
        
         ZStack{
-            Color(.green)
-               .ignoresSafeArea()
+           
+            Image( "doctor")
+                .resizable().scaledToFit().opacity(0.7)
             VStack{
                 
                 Text("Positivos")
