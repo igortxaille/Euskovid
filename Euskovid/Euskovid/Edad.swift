@@ -16,9 +16,7 @@ struct Edad: View {
             ScrollView{
         
             VStack{
-                UITableView{
-                    
-                }
+              
                 Text("0-9")
                     .foregroundColor(.black)
                     .font(.title3)

@@ -54,6 +54,9 @@ struct Positivos: View {
                 
             }
             .navigationBarTitle("Volver", displayMode: .inline)
+            .onAppear(){
+                vm.cargarPCR()
+            }
         }
     }
 }

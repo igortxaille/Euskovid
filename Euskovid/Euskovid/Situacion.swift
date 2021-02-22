@@ -21,6 +21,7 @@ struct Situacion : View {
                .ignoresSafeArea()
 
             VStack(spacing:1){
+                
                 Text("r0")
                     .foregroundColor(.black)
                     .font(.largeTitle)
