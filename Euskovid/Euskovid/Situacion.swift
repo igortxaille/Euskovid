@@ -1,18 +1,18 @@
 //
-//  SwiftUIView.swift
+//  Situacion.swift
 //  Euskovid
 //
-//  Created by igor anton on 15/02/2021.
+//  Created by igor anton on 20/02/2021.
 //
 
 import SwiftUI
 
-struct Positivos: View {
+struct Situacion : View {
     @ObservedObject var vm = ViewModel()
     
     var body: some View {
         ZStack{
-           
+
            
             Image( "doctor")
                 .resizable().scaledToFit().opacity(0.7)
@@ -21,29 +21,36 @@ struct Positivos: View {
                .ignoresSafeArea()
 
             VStack(spacing:1){
-                Text("Fecha")
+                Text("r0")
                     .foregroundColor(.black)
                     .font(.largeTitle)
                     .background(Color.red.opacity(0.2))
-                Text(vm.fecha)
+                Text(vm.r0)
                     .font(.title)
                     .padding(60)
                 
-                Text("Positivos")
+                Text("PCR")
                     .foregroundColor(.black)
                     .font(.largeTitle)
                     .background(Color.red.opacity(0.2))
-                Text(vm.positivos)
+                Text(vm.pcrCount)
                     .font(.title)
                     .padding(20)
-                Text("Incidencia")
+                Text("Total Positivos")
                     .foregroundColor(.black)
                     .font(.largeTitle)
                     .background(Color.red.opacity(0.2))
-                Text(vm.incidencia)
+                Text(vm.Totalpositivo)
                     .font(.title)
                     .padding(20)
                 
+                Text("Nuevos ingresos")
+                    .foregroundColor(.black)
+                    .font(.largeTitle)
+                    .background(Color.red.opacity(0.2))
+                Text(vm.ingresos)
+                    .font(.title)
+                    .padding(20)
                 Button("Cargar datos") {
                     vm.cargarPCR()
                 }
@@ -56,10 +63,13 @@ struct Positivos: View {
             .navigationBarTitle("Volver", displayMode: .inline)
         }
     }
+    }
+    
+
+
+struct Situacion_Previews: PreviewProvider {
+    static var previews: some View {
+        Situacion()
+    }
 }
-        struct ContentView_Previews: PreviewProvider {
-            static var previews: some View {
-                Positivos()
-            }
-        }
 

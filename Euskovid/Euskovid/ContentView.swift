@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 struct ContentView: View {
+    @ObservedObject var vm = ViewModel()
     
     var body: some View {
         
@@ -21,7 +22,9 @@ struct ContentView: View {
             Image( "doctor")
                 .resizable().scaledToFit().opacity(0.7)
             VStack{
+                
                 NavigationLink(destination: Positivos()) {
+                    
                                     Text("Nº Positivos")
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()
@@ -30,7 +33,7 @@ struct ContentView: View {
                                     .cornerRadius(40)
                                         .font(.title)}
                     .padding(20)
-                NavigationLink(destination: Positivos()) {
+                NavigationLink(destination: Municipios()) {
                                     Text("Municipios")
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()
@@ -39,7 +42,7 @@ struct ContentView: View {
                                     .cornerRadius(40)
                                         .font(.title)}
                     .padding(20)
-                NavigationLink(destination: Positivos()) {
+                NavigationLink(destination: Edad()) {
                                     Text("Edad y Sexo")
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()
@@ -48,7 +51,7 @@ struct ContentView: View {
                                     .cornerRadius(40)
                                         .font(.title)}
                     .padding(20)
-                NavigationLink(destination: Positivos()) {
+                NavigationLink(destination: Situacion()) {
                                     Text("Situaciòn Epidemica")
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()
