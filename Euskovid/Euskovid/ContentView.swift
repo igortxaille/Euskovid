@@ -19,8 +19,7 @@ struct ContentView: View {
             
         ZStack{
            
-            Image( "doctor")
-                .resizable().scaledToFit().opacity(0.7)
+           
             VStack{
                 
                 NavigationLink(destination: Positivos()) {
@@ -42,7 +41,7 @@ struct ContentView: View {
                                     .cornerRadius(40)
                                         .font(.title)}
                     .padding(20)
-                NavigationLink(destination: Edad()) {
+                NavigationLink(destination: Edad() ) {
                                     Text("Edad y Sexo")
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()

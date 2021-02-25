@@ -13,61 +13,77 @@ struct Situacion : View {
     var body: some View {
         ZStack{
 
-           
-            Image( "doctor")
-                .resizable().scaledToFit().opacity(0.7)
-
-            Color(.systemFill)
+            Color(.white)
                .ignoresSafeArea()
 
             VStack(spacing:1){
-                
+                HStack{
+                    VStack{
                 Text("r0")
                     .foregroundColor(.black)
-                    .font(.largeTitle)
-                    .background(Color.red.opacity(0.2))
+                    .font(.title)
+                    .background(Color.blue.opacity(0.5))
                 Text(vm.r0)
                     .font(.title)
-                    .padding(60)
-                
-                Text("PCR")
+                    .padding(20)
+                    .padding()
                     .foregroundColor(.black)
-                    .font(.largeTitle)
-                    .background(Color.red.opacity(0.2))
+                    .background(Color.yellow)
+                    .cornerRadius(100.0)
+                
+                Text("PCR Realizados")
+                    .foregroundColor(.black)
+                    .font(.title)
+                    .background(Color.blue.opacity(0.5))
                 Text(vm.pcrCount)
                     .font(.title)
                     .padding(20)
+                    .padding()
+                    .foregroundColor(.black)
+                    .background(Color.yellow)
+                    .cornerRadius(100.0)
+                    .padding()
+                }
+                }
+               
+                    HStack{
+                        
+                        VStack{
                 Text("Total Positivos")
                     .foregroundColor(.black)
-                    .font(.largeTitle)
-                    .background(Color.red.opacity(0.2))
+                    .font(.title)
+                    .background(Color.blue.opacity(0.5))
+                            
                 Text(vm.Totalpositivo)
                     .font(.title)
                     .padding(20)
+                    .padding()
+                    .foregroundColor(.black)
+                    .background(Color.yellow)
+                    .cornerRadius(100.0)
                 
                 Text("Nuevos ingresos")
                     .foregroundColor(.black)
-                    .font(.largeTitle)
-                    .background(Color.red.opacity(0.2))
+                    .font(.title)
+                    .background(Color.blue.opacity(0.5))
                 Text(vm.ingresos)
                     .font(.title)
                     .padding(20)
-                Button("Cargar datos") {
-                    vm.cargarPCR()
-                }
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.yellow)
-                .cornerRadius(10.0)
                 
+                .padding()
+                .foregroundColor(.black)
+                .background(Color.yellow)
+                .cornerRadius(100.0)
+                        }
             }
             .navigationBarTitle("Volver", displayMode: .inline)
+            .onAppear(){
+                vm.cargarPCR()
         }
     }
+        }
     }
-    
-
-
+}
 struct Situacion_Previews: PreviewProvider {
     static var previews: some View {
         Situacion()
