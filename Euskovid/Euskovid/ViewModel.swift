@@ -105,7 +105,7 @@ class ViewModel: ObservableObject {
                         let dataFromString = value.data(using: .utf8, allowLossyConversion: false)
                         let muniJson = try JSON(data: dataFromString!)
 
-                        let ultimo = muniJson["date"].array!.last
+                        let ultimo = muniJson["newPositivesByDateByMunicipality"].array!.last
                         
                         //self.fecha = ultimo!["date"].stringValue
                         self.pueblo = ultimo!["officialName"].stringValue
