@@ -78,8 +78,9 @@ struct Situacion : View {
             }
             .navigationBarTitle("Volver", displayMode: .inline)
             .onAppear(){
-                vm.cargarPCR()
-        }
+                vm.cargarSituacion()
+                
+            }
     }
         }
     }

@@ -13,19 +13,23 @@ struct Municipios: View {
         var body: some View {
         
         VStack{
-           
-            List{
-                Text(vm.pueblo)
-            }
+            Picker(selection: $vm.pueblo, label: Text("Brand")) {
+                ForEach(vm.datos, id: \.self) { pueblo in
+                    Text("\(pueblo.nombre)")                    
+                }
+                            }
+            
+            Text(String(vm.pueblo.positivos))
           
             .navigationBarTitle("Volver", displayMode: .inline)
             .onAppear(){
-                vm.cargarPCR()
+                vm.cargarPueblos()
         }
        
     }
         }
-    }
+}
+    
 
 struct Municipios_Previews: PreviewProvider {
     static var previews: some View {

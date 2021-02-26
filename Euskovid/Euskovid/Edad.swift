@@ -59,7 +59,7 @@ struct Edad: View {
         }
             .navigationBarTitle("Volver", displayMode: .inline)
             .onAppear() {
-            vm.cargarPCR()
+            vm.cargarEdad()
 
         }
 

@@ -28,7 +28,7 @@ struct ContentView: View {
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()
                                     .foregroundColor(.white)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing))
+                                    .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.green]), startPoint: .leading, endPoint: .trailing))
                                     .cornerRadius(40)
                                         .font(.title)}
                     .padding(20)
@@ -37,7 +37,7 @@ struct ContentView: View {
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()
                                     .foregroundColor(.white)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing))
+                                    .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.green]), startPoint: .leading, endPoint: .trailing))
                                     .cornerRadius(40)
                                         .font(.title)}
                     .padding(20)
@@ -46,7 +46,7 @@ struct ContentView: View {
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()
                                     .foregroundColor(.white)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing))
+                                    .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.green]), startPoint: .leading, endPoint: .trailing))
                                     .cornerRadius(40)
                                         .font(.title)}
                     .padding(20)
@@ -55,7 +55,7 @@ struct ContentView: View {
                                     .frame(minWidth: 0, maxWidth: 300)
                                     .padding()
                                     .foregroundColor(.white)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing))
+                                    .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.green]), startPoint: .leading, endPoint: .trailing))
                                     .cornerRadius(40)
                                         .font(.title)}
                     .padding(20

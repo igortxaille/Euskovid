@@ -11,6 +11,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+struct Pueblo: Identifiable, Hashable {
+    var id = UUID()
+    var nombre: String
+    var positivos: Int
+}
 
 
 class ViewModel: ObservableObject {
@@ -18,7 +23,7 @@ class ViewModel: ObservableObject {
     @Published var incidencia = "15"
     @Published var positivos = "15"
     @Published var fecha = "1"
-    @Published var pueblo = "1"
+    @Published var pueblo = Pueblo(nombre: "Pruebas",positivos:0)
     @Published var positCount = "1"
     @Published var hombre = "1"
     @Published var mujer = "1"
@@ -36,8 +41,8 @@ class ViewModel: ObservableObject {
     @Published var pcrCount = "1"
     @Published var Totalpositivo = "10"
     @Published var ingresos = "1"
-    
-    
+    @Published var datos = [Pueblo]()
+    @Published var id =  "0"
     
     func cargarPCR(){
         let pcr = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-pcr.json"
@@ -66,6 +71,8 @@ class ViewModel: ObservableObject {
                 print(error)
             }
         }
+    }
+        func cargarEdad(){
         let edad = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-pcr-positives.json"
         
         AF.request(edad, method: .get).validate().responseString { response in
@@ -97,19 +104,25 @@ class ViewModel: ObservableObject {
                 print(error)
             }
         }
+        }
+        func cargarPueblos(){
             let municipios = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-bymunicipality.json"
-        AF.request(municipios, method: .get).validate().responseString { response in
+            AF.request(municipios, method: .get).validate().responseString { [self] response in
                 switch response.result {
                 case .success(let value):
                     do {
                         let dataFromString = value.data(using: .utf8, allowLossyConversion: false)
                         let muniJson = try JSON(data: dataFromString!)
 
-                        let ultimo = muniJson["newPositivesByDateByMunicipality"].array!.last
+                       
                         
-                        //self.fecha = ultimo!["date"].stringValue
-                        self.pueblo = ultimo!["officialName"].stringValue
-                        self.positCount = ultimo!["positiveCount"].stringValue
+                        
+                        
+                        self.pueblo = Pueblo(nombre:  muniJson["newPositivesByDateByMunicipality"][0]["items"][0]["geoMunicipality"]["officialName"].stringValue, self.positivos: muniJson["newPositivesByDateByMunicipality"][0]["items"][0]["positiveCount"].intValue
+                            
+                        self.datos.append(pueblo)
+                            
+                    
                     } catch {
                         print("Error al cargar el JSON")
                     }
@@ -118,10 +131,10 @@ class ViewModel: ObservableObject {
                     print(error)
                 }
             }
-        
+        }
       
             
-        
+        func cargarSituacion(){
         
             let situacion = "https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-epidemic-status.json"
             AF.request(situacion, method: .get).validate().responseJSON { response in
@@ -142,7 +155,6 @@ class ViewModel: ObservableObject {
                 }
             }
         }
-    
     
     }
 
