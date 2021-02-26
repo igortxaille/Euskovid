@@ -25,8 +25,7 @@ class ViewModel: ObservableObject {
     @Published var fecha = "1"
     @Published var pueblo = Pueblo(nombre: "Pruebas",positivos:0)
     @Published var positCount = "1"
-    @Published var hombre = "1"
-    @Published var mujer = "1"
+    
     @Published var hasta9 = "1"
     @Published var d10 = "2"
     @Published var d20 = "3"
@@ -84,8 +83,7 @@ class ViewModel: ObservableObject {
 
                     let ultimo = edadJson["byDate"].array!.last
                     
-                    self.hombre = ultimo!["menCount"].stringValue
-                    self.mujer = ultimo!["womenCount"].stringValue
+                   
                     self.hasta9 = ultimo!["age_0_9_Count"].stringValue
                     self.d10 = ultimo!["age_10_19_Count"].stringValue
                     self.d20 = ultimo!["age_20_29_Count"].stringValue
@@ -115,12 +113,15 @@ class ViewModel: ObservableObject {
                         let muniJson = try JSON(data: dataFromString!)
 
                        
+                        let datos = muniJson["newPositivesByDateByMunicipality"][0]["items"].arrayValue
                         
                         
+                        for item in datos {
+                            self.pueblo = Pueblo( nombre:  item["geoMunicipality"]["officialName"].stringValue, positivos: item["positiveCount"].intValue)
+                                
+                            self.datos.append(pueblo)
+                        }
                         
-                        self.pueblo = Pueblo(nombre:  muniJson["newPositivesByDateByMunicipality"][0]["items"][0]["geoMunicipality"]["officialName"].stringValue, self.positivos: muniJson["newPositivesByDateByMunicipality"][0]["items"][0]["positiveCount"].intValue
-                            
-                        self.datos.append(pueblo)
                             
                     
                     } catch {
